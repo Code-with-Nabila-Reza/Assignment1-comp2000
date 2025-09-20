@@ -26,5 +26,4 @@ public abstract class Actor implements Movable{
     }
   }
 
-
 }

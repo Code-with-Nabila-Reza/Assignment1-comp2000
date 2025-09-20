@@ -24,4 +24,11 @@ public class Bird extends Actor {
     body.addPoint(loc.x + 15, loc.y + 25);
     shapes.add(body);
   }
+
+  @Override
+  //birds can fly over on all types of places
+  // --grass, forest, rock, water, sand
+  public boolean canBeMoved(Cell des){
+     return true;
+  }
 }
