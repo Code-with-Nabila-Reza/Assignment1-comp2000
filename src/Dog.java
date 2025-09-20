@@ -23,4 +23,13 @@ public class Dog extends Actor {
     face.addPoint(loc.x + 8, loc.y + 25);
     shapes.add(face);
   }
+
+  @Override
+  //dog cannot move on water 
+  public boolean canBeMoved(Cell c){
+    String type = c.getType();
+    boolean allowedToMove = !type.equals("Water");
+    return allowedToMove;
+  }
+
 }
