@@ -22,4 +22,13 @@ public class Cat extends Actor {
     face.addPoint(loc.x + 17, loc.y + 30);
     shapes.add(face);
   }
+
+  @Override
+  //cat cannot move on water or sand
+  //arbitarily defined characteristic made for this game
+  public boolean canBeMoved(Cell c){
+    String type = c.getType();
+    boolean allowedToMove = !type.equals("Water") && !type.equals("Sand");
+    return allowedToMove;
+  }
 }
