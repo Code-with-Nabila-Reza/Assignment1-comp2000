@@ -91,4 +91,12 @@ public class Grid {
     // Return the cell wrapped in Optional
     return Optional.of(cells[col][row]);
   }
+
+  public boolean cellIsInsideGrid(Cell desCell){
+    int col = (desCell.x - 10) / Cell.size;
+    int row = (desCell.y - 10) / Cell.size;
+    boolean isInside = (col>=0 && col < cells.length && row >= 0 && row < cells[0].length);
+    return isInside;
+  }
+  
 }
