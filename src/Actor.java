@@ -20,16 +20,48 @@ public abstract class Actor implements Movable{
   }
 
   public abstract boolean canBeMoved(Cell c);
-  public abstract int getPointsEarnedFromCell(Cell c);
+
+  //each cell has points based on its type
+      //cell might have collectibles that have their own points
+ 
+  public int getPointsEarnedFromCell(Cell c){
+    String type = c.getType();
+    if (type.equals("Water")) {
+        return -2;
+    }
+     else if (type.equals("Grass")) {
+        return 2;
+    }
+     else if (type.equals("Rock")) {
+        return -1;
+    } 
+    else if (type.equals("Sand")) {
+        return -1;
+    }
+     else if (type.equals("Forest")) {
+        return 1;
+    }
+     else {
+        return 0;
+    }
+
+  }
 
   @Override
   public void move(Cell destinationCell, Grid grid){
     if(grid.cellIsInsideGrid(destinationCell) && canBeMoved(destinationCell)){
-      //each cell has points based on its type
-      //each cell has collectibles that have their own points
       int newCellPoint = getPointsEarnedFromCell(destinationCell);
+      modifyPoints(newCellPoint);//collecting point from cell type
 
-
+      //points<--collectible
+      //we collect item points are gained 
+      //if cell has collectible it gets stored in inventory 
+      //the cell collectible then gets set to null
+      Collectible item = destinationCell.getItem();
+            if (item != null) {
+                collectItem(item);
+                destinationCell.setItem(null);
+            }
 
       this.loc = destinationCell;
     }
