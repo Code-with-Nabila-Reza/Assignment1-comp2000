@@ -4,6 +4,7 @@ import java.awt.Polygon;
 public class Bird extends Actor {
   public Bird(Cell inLoc) {
     this.loc = inLoc; 
+    this.name = "Bird";
 
    Polygon wing1 = new Polygon();
     wing1.addPoint(loc.x + 5, loc.y + 5);

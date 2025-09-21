@@ -3,6 +3,7 @@ import java.awt.Polygon;
 public class Cat extends Actor {
   public Cat(Cell inLoc) {
     this.loc = inLoc; 
+    this.name = "Cat";
     
     Polygon ear1 = new Polygon();
     ear1.addPoint(loc.x + 11, loc.y + 5);
