@@ -7,6 +7,7 @@ public abstract class Actor implements Movable{
   protected Cell loc;
   protected Inventory<Collectible> ActInventory = new  Inventory<>();
   protected int points = 0;
+  protected String name;
 
   public void paint(Graphics g) {
     for (Polygon P : shapes){
@@ -85,6 +86,10 @@ public abstract class Actor implements Movable{
     if(p<0){
       p=0; // points aren't gonna be zero
     }
+  }
+
+  public String getName(){
+    return name;
   }
 
 }
