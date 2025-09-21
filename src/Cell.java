@@ -35,19 +35,19 @@ public class Cell extends Rectangle {
   public void paint(Graphics g, Point mousePos) {
 
     if (type.equals("Grass")) {
-      g.setColor(Color.GREEN);
+      g.setColor(new Color(144,238,144));
   } 
   else if (type.equals("Water")) {
-      g.setColor(Color.CYAN);
+      g.setColor(new Color(173,216,230));
   }
    else if (type.equals("Sand")) {
-      g.setColor(Color.YELLOW);
+      g.setColor(new Color(238,232,170));
   } 
   else if (type.equals("Rock")) {
-      g.setColor(Color.DARK_GRAY);
+      g.setColor(Color.GRAY);
   } 
   else if (type.equals("Forest")) {
-      g.setColor(Color.GREEN.darker());
+      g.setColor(new Color(34, 139, 34));
   } 
   
 
@@ -62,13 +62,13 @@ public class Cell extends Rectangle {
    //collectible items
    if (item != null) {
     if (item.getName().equals("MagicFeather")) {
-        g.setColor(Color.MAGENTA);
+        g.setColor(new Color(255,20,147));
     } 
     else if (item.getName().equals("LuckyBell")) {
-        g.setColor(Color.LIGHT_GRAY);
+        g.setColor(Color.BLUE);
     } 
     else if (item.getName().equals("GoldenCollar")) {
-        g.setColor(Color.YELLOW);
+        g.setColor(new Color(255,215,0));
     } 
     else {
         g.setColor(Color.WHITE); // default if new item added
