@@ -24,7 +24,11 @@ public class Main extends JFrame {
         addMouseMotionListener(this);  // Add mouse tracking
         addKeyListener(this);
         setFocusable(true);//added for the key listener
-        selectedActor = stage.getActors().get(0);//getActors--arraylist of actors
+        setFocusTraversalKeysEnabled(false);
+        selectedActor = stage.getActors().get(0);
+        //getActors--arraylist of actors
+        requestFocusInWindow();
+
       }
 
       @Override
@@ -62,21 +66,25 @@ public class Main extends JFrame {
             } else if (key == KeyEvent.VK_TAB) {
                 sActorIndex = (sActorIndex + 1) % stage.getActors().size();
                 selectedActor = stage.getActors().get(sActorIndex);
+                requestFocusInWindow();
             }
             repaint();
         }
 
-         void moveSelectedActor(int dx, int dy) {
+        void moveSelectedActor(int dx, int dy) {
           Cell currentCell = selectedActor.getCellLocation();
           int col = (currentCell.x - 10) / Cell.size;
           int row = (currentCell.y - 10) / Cell.size;
           int newCol = col + dx;
           int newRow = row + dy;
+          
           if (newCol >= 0 && newCol < 20 && newRow >= 0 && newRow < 20) {
               Cell targetCell = stage.getGrid().getCell(newCol, newRow);
               selectedActor.move(targetCell, stage.getGrid());
+              
           }
       }
+
       @Override
       public void keyTyped(KeyEvent e) {}
 
