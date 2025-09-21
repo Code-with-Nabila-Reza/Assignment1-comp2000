@@ -33,14 +33,52 @@ public class Cell extends Rectangle {
   }
 
   public void paint(Graphics g, Point mousePos) {
+
+    if (type.equals("Grass")) {
+      g.setColor(Color.GREEN);
+  } 
+  else if (type.equals("Water")) {
+      g.setColor(Color.CYAN);
+  }
+   else if (type.equals("Sand")) {
+      g.setColor(Color.YELLOW);
+  } 
+  else if (type.equals("Rock")) {
+      g.setColor(Color.DARK_GRAY);
+  } 
+  else if (type.equals("Forest")) {
+      g.setColor(Color.GREEN.darker());
+  } 
+  
+
     if(contains(mousePos)) {
       g.setColor(Color.GRAY);
-    } else {
-      g.setColor(Color.WHITE);
     }
+     
     g.fillRect(x, y, size, size);
     g.setColor(Color.BLACK);
     g.drawRect(x, y, size, size);
+
+   //collectible items
+   if (item != null) {
+    if (item.getName().equals("MagicFeather")) {
+        g.setColor(Color.MAGENTA);
+    } 
+    else if (item.getName().equals("LuckyBell")) {
+        g.setColor(Color.LIGHT_GRAY);
+    } 
+    else if (item.getName().equals("GoldenCollar")) {
+        g.setColor(Color.YELLOW);
+    } 
+    else {
+        g.setColor(Color.WHITE); // default if new item added
+    }
+    
+    g.fillOval(x + 10, y + 10, 15, 15);
+    g.setColor(Color.BLACK);
+    g.drawOval(x + 10, y + 10, 15, 15);
+}
+  
   }
 
   public boolean contains(Point p) {
