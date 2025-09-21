@@ -1,10 +1,14 @@
+import java.awt.Graphics;
 import java.awt.Polygon;
 
 public class Cat extends Actor {
   public Cat(Cell inLoc) {
     this.loc = inLoc; 
     this.name = "Cat";
-    
+  }
+
+  @Override
+  public void paint(Graphics g){
     Polygon ear1 = new Polygon();
     ear1.addPoint(loc.x + 11, loc.y + 5);
     ear1.addPoint(loc.x + 15, loc.y + 15);
@@ -23,7 +27,8 @@ public class Cat extends Actor {
     face.addPoint(loc.x + 17, loc.y + 30);
     shapes.add(face);
   }
-
+}
+/* 
   @Override
   //cat cannot move on water or sand
   //arbitarily defined characteristic made for this game
@@ -31,5 +36,5 @@ public class Cat extends Actor {
     String type = c.getType();
     boolean allowedToMove = !type.equals("Water") && !type.equals("Sand");
     return allowedToMove;
-  }
-}
+  }*/
+

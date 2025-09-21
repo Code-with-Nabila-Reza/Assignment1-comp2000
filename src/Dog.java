@@ -1,9 +1,13 @@
 import java.awt.Polygon;
+import java.awt.Graphics;
 
 public class Dog extends Actor {
   public Dog(Cell inLoc) {
     this.loc = inLoc;
     this.name = "Dog";
+  }
+
+  public void paint(Graphics g){
     
     Polygon ear1 = new Polygon();
     ear1.addPoint(loc.x + 5, loc.y + 5);
@@ -24,13 +28,12 @@ public class Dog extends Actor {
     face.addPoint(loc.x + 8, loc.y + 25);
     shapes.add(face);
   }
-
+}
+/* 
   @Override
   //dog cannot move on water 
   public boolean canBeMoved(Cell c){
     String type = c.getType();
     boolean allowedToMove = !type.equals("Water");
     return allowedToMove;
-  }
-
-}
+  }*/

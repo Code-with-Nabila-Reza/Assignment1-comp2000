@@ -1,11 +1,13 @@
 import java.awt.Polygon;
+import java.awt.Graphics;
 
 
 public class Bird extends Actor {
   public Bird(Cell inLoc) {
     this.loc = inLoc; 
     this.name = "Bird";
-
+  }
+  public void paint(Graphics g){
    Polygon wing1 = new Polygon();
     wing1.addPoint(loc.x + 5, loc.y + 5);
     wing1.addPoint(loc.x + 15, loc.y + 17);
@@ -25,11 +27,12 @@ public class Bird extends Actor {
     body.addPoint(loc.x + 15, loc.y + 25);
     shapes.add(body);
   }
+}
 
-  @Override
+ /*  @Override
   //birds can fly over on all types of places
   // --grass, forest, rock, water, sand
   public boolean canBeMoved(Cell des){
      return true;
-  }
-}
+  }*/
+
