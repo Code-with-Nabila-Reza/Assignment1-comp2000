@@ -55,7 +55,15 @@ public class Grid {
         int row = (cell.y - 10) / Cell.size;
         g.drawString("Grid Position: [" + col + ", " + row + "]", 730, 135);
         
-    } else {
+        if (cell.getItem() != null) {
+          g.drawString("Item: " + cell.getItem().getName(), 730, 160);
+          g.drawString("Points: " + cell.getItem().getPoints(), 730, 185);
+      } 
+        else {
+          g.drawString("Item: None", 730, 160);
+      }
+  }
+     else {
         g.drawString("No cell at mouse position", 730, 30);
         if (mousePos != null) {
             g.setFont(new Font("Arial", Font.PLAIN, 12));
@@ -99,4 +107,11 @@ public class Grid {
     return isInside;
   }
   
+  public Cell getCell(int col, int row) {
+    if (col < 0 || col >= cells.length || row < 0 || row >= cells[0].length) {
+        return null;
+    }
+    return cells[col][row];
+}
+
 }
