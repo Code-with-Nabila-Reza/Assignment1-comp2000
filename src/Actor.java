@@ -24,7 +24,7 @@ public abstract class Actor implements Movable{
     return loc;
   }
 
-  
+
 
   //each cell has points based on its type
       //cell might have collectibles that have their own points
@@ -54,7 +54,7 @@ public abstract class Actor implements Movable{
 
   @Override
   public void move(Cell destinationCell, Grid grid){
-    if(grid.cellIsInsideGrid(destinationCell) ){//&& canBeMoved(destinationCell)
+    if(grid.cellIsInsideGrid(destinationCell) ){
       int newCellPoint = getPointsEarnedFromCell(destinationCell);
       modifyPoints(newCellPoint);//collecting point from cell type
 
