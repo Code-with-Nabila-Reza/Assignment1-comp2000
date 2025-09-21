@@ -83,8 +83,8 @@ public abstract class Actor implements Movable{
   public void modifyPoints(int p){
     points += p;
     //p can be negative depends on the type of cell and its points
-    if(p<0){
-      p=0; // points aren't gonna be zero
+    if(points<0){
+      points=0; // points aren't gonna be zero
     }
   }
 
