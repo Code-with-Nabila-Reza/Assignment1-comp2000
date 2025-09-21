@@ -44,8 +44,20 @@ public class Stage {
         
         g.drawString("Items: " + actor.getInventory().size(), 730, yPosition);
         yPosition += 20;
+
+       // displaying each item
+    if (actor.getInventory().size() == 0) {
+      g.drawString("None", 730, yPosition);
+      yPosition += 20;
+  } 
+  else {
+      for (Collectible item : actor.getInventory().getItemList()) {
+          g.drawString(item.getName(), 730, yPosition);
+          yPosition += 20;
+      }
+  }
         //space before next actor
-        yPosition += 10;
+        yPosition += 20;
     }
 }
 
