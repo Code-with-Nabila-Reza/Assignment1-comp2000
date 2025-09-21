@@ -5,27 +5,24 @@ public class Dog extends Actor {
   public Dog(Cell inLoc) {
     this.loc = inLoc;
     this.name = "Dog";
-  }
-
-  public void paint(Graphics g){
-    
+  
     Polygon ear1 = new Polygon();
-    ear1.addPoint(loc.x + 5, loc.y + 5);
-    ear1.addPoint(loc.x + 15, loc.y + 5);
-    ear1.addPoint(loc.x + 5, loc.y + 15);
+    ear1.addPoint(5, 5);
+    ear1.addPoint(15, 5);
+    ear1.addPoint( 5, 15);
     shapes.add(ear1);
 
     Polygon ear2 = new Polygon();
-    ear2.addPoint(loc.x + 20, loc.y + 5);
-    ear2.addPoint(loc.x + 30, loc.y + 5);
-    ear2.addPoint(loc.x + 30, loc.y + 15);
+    ear2.addPoint( 20,  5);
+    ear2.addPoint(30,  5);
+    ear2.addPoint( 30, 15);
     shapes.add(ear2);
 
     Polygon face = new Polygon();
-    face.addPoint(loc.x + 8, loc.y + 7);
-    face.addPoint(loc.x + 27, loc.y + 7);
-    face.addPoint(loc.x + 27, loc.y + 25);
-    face.addPoint(loc.x + 8, loc.y + 25);
+    face.addPoint( 8, 7);
+    face.addPoint( 27,  7);
+    face.addPoint( 27,  25);
+    face.addPoint( 8, 25);
     shapes.add(face);
   }
 }

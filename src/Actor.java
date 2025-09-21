@@ -10,11 +10,15 @@ public abstract class Actor implements Movable{
   protected String name;
 
   public void paint(Graphics g) {
-    for (Polygon P : shapes){
-      g.drawPolygon(P); //outline
-      g.fillPolygon(P); //Filling
+    for (Polygon p : shapes) {
+        Polygon moved = new Polygon();
+        for (int i = 0; i < p.npoints; i++) {
+            moved.addPoint(p.xpoints[i] + loc.x, p.ypoints[i] + loc.y);
+        }
+        g.drawPolygon(moved);
+        g.fillPolygon(moved);
     }
-  }
+}
 
   public Cell getCellLocation(){
     return loc;
