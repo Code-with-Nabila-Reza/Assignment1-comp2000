@@ -48,4 +48,12 @@ public class Stage {
         yPosition += 10;
     }
 }
+
+public Grid getGrid(){
+  return grid;
+}
+
+public  ArrayList<Actor> getActors(){
+  return actors;
+}
 }
