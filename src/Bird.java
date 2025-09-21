@@ -27,10 +27,4 @@ public class Bird extends Actor {
   }
 }
 
- /*  @Override
-  //birds can fly over on all types of places
-  // --grass, forest, rock, water, sand
-  public boolean canBeMoved(Cell des){
-     return true;
-  }*/
-
+ 

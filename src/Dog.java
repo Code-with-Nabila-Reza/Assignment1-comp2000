@@ -1,5 +1,4 @@
 import java.awt.Polygon;
-import java.awt.Graphics;
 
 public class Dog extends Actor {
   public Dog(Cell inLoc) {
@@ -26,11 +25,4 @@ public class Dog extends Actor {
     shapes.add(face);
   }
 }
-/* 
-  @Override
-  //dog cannot move on water 
-  public boolean canBeMoved(Cell c){
-    String type = c.getType();
-    boolean allowedToMove = !type.equals("Water");
-    return allowedToMove;
-  }*/
+
