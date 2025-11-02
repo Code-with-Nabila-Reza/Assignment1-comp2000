@@ -258,8 +258,8 @@ We calculated wind strength by taking the vector magnitude √(windX² + windY²
   
 ## Coordinate System:
 
-Server coordinates centered at (0,0)
-The server coordinates were converted by adding 10 to the x-value and subtracting the y-value from 10, which both shifts the origin from center to top-left AND inverts the y-axis since the server's positive y points north while the grid's positive y points downward.
+Server coordinates centered at (0,0) whereas the grids (0,0) is on the top-left.
+The server coordinates were converted by adding 10 (half the length of the grid) to the x-value and subtracting the y-value from 10, which both shifts the origin from center to top-left AND inverts the y-axis since the server's positive y points north while the grid's positive y points downward.
 
 ## Uniqueness and Creativity:
 
@@ -298,6 +298,13 @@ Players must consider both terrain types and weather conditions when moving anim
 #### HTTP Client Integration:
 Seamlessly integrated real-time weather data from external server while maintaining game performance and responsiveness.
 
+### Enhanced Client Implementation:
+
+The `Client.java` file was significantly enhanced from the Week 11 workshop version to serve as a publisher in the Observer pattern. Rather than using the provided code directly, I modified it to:
+- Act as an observable subject that notifies multiple observers
+- Handle real-time weather data parsing and distribution 
+- Integrate seamlessly with the game's coordinate system and weather effects
+
 ### Coordinate System Handling:
 Converted server coordinate system (center-origin) to grid system (top-left origin) with proper bounds checking.
 
@@ -324,3 +331,4 @@ Converted server coordinate system (center-origin) to grid system (top-left orig
 - LuckyBell/GoldenCollar/MagicFeather.java → Specific item types
 - Inventory.java → Generic inventory management
 - Movable.java → Movement interface
+
