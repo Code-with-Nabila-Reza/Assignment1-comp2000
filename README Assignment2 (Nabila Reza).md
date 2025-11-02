@@ -255,6 +255,10 @@ We calculated wind strength by taking the vector magnitude √(windX² + windY²
 - `0.0-0.5`: Calm (no effect)
 - `0.5-0.7`: Breezy (affects birds: -2 points)
 - `> 0.7`: Windy (affects birds: -3 points)
+
+### Dominant Weather Condition:
+
+The dominant weather condition for each cell is determined by comparing rainfall, temperature, and normalized wind strength, selecting whichever is highest relative to the others & exceeds its specific threshold (rain > 0.45, temp > 0.55, wind > 0.5). This ensures only meaningful conditions are displayed visually.
   
 ## Coordinate System:
 
@@ -331,4 +335,5 @@ Converted server coordinate system (center-origin) to grid system (top-left orig
 - LuckyBell/GoldenCollar/MagicFeather.java → Specific item types
 - Inventory.java → Generic inventory management
 - Movable.java → Movement interface
+
 
