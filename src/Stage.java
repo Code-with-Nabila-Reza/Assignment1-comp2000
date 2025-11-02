@@ -9,13 +9,24 @@ public class Stage {
   Grid grid;
   ArrayList<Actor> actors = new ArrayList<>();
 
+  private boolean showWeatherAnalysis = false;
+
   public Stage() {
     grid = new Grid();
 
-    // create actors and add them to the list
-    actors.add(new Cat(grid.cellAtColRow(0, 0).get()));
-    actors.add(new Dog(grid.cellAtColRow(0, 15).get()));
-    actors.add(new Bird(grid.cellAtColRow(12, 9).get()));  
+    /// Create actors normally (no constructor changes)
+    Actor cat = new Cat(grid.cellAtColRow(0, 0).get());
+    Actor dog = new Dog(grid.cellAtColRow(0, 15).get());
+    Actor bird = new Bird(grid.cellAtColRow(12, 9).get());
+    
+    // SET STRATEGIES AFTER CREATION
+    cat.setWeatherStrategy(new CatWeatherStrategy());
+    dog.setWeatherStrategy(new DogWeatherStrategy());
+    bird.setWeatherStrategy(new BirdWeatherStrategy());
+    
+    actors.add(cat);
+    actors.add(dog);
+    actors.add(bird);
   }
 
   public void paint(Graphics g, Point mouseLoc) {
@@ -27,6 +38,13 @@ public class Stage {
       actor.paint(g);
     }
     paintActorsPoints(g);
+     
+    // we show weather analysis when toggled
+    if (showWeatherAnalysis) {
+      grid.paintWeatherAnalysis(g);
+  }
+
+
   }
 
    void paintActorsPoints(Graphics g) {
@@ -57,5 +75,13 @@ public Grid getGrid(){
 
 public  ArrayList<Actor> getActors(){
   return actors;
+}
+
+public void toggleWeatherAnalysis() {
+  showWeatherAnalysis = !showWeatherAnalysis;
+}
+
+public boolean isShowingWeatherAnalysis() {
+  return showWeatherAnalysis;
 }
 }

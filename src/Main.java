@@ -16,6 +16,9 @@ public class Main extends JFrame {
 
     class Canvas extends JPanel implements MouseMotionListener, KeyListener {
       Stage stage = new Stage();
+
+      private Client weatherClient;
+
       private Actor selectedActor;
       private int sActorIndex = 0;
 
@@ -29,7 +32,16 @@ public class Main extends JFrame {
         //getActors--arraylist of actors
         requestFocusInWindow();
 
-      }
+            weatherClient = new Client();//weatherClient--publisher
+            weatherClient.addObserver(stage.getGrid()); 
+            // Grid observes weather
+            weatherClient.WeatherStream();
+             // Starts receiving weather data
+
+            selectedActor = stage.getActors().get(0);
+            requestFocusInWindow();
+
+        }
 
       @Override
       public void paint(Graphics g) {
@@ -67,6 +79,11 @@ public class Main extends JFrame {
                 sActorIndex = (sActorIndex + 1) % stage.getActors().size();
                 selectedActor = stage.getActors().get(sActorIndex);
                 requestFocusInWindow();
+            }
+            else if (key == KeyEvent.VK_W) {
+              // toggles weather analysis panel
+              stage.toggleWeatherAnalysis();
+              repaint();  // refreshes to show or hide the panel
             }
             repaint();
         }
